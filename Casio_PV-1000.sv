@@ -266,10 +266,10 @@ assign USER_PP  = USER_PP_DRIVE;
 // (6-btn MD native | 3-btn MD Start+B chord via joydb9md.v | Saturn R | DB15 Select).
 // PV-1000 J: Fire1=[4], Fire2=[5], Select=[6], Start=[7].
 wire [31:0] joy0 = joydb_1ena ? (OSD_STATUS ? 32'b0
-                              : {24'b0, joydb_1[10], joydb_1[11], joydb_1[5], joydb_1[4], joydb_1[3:0]})
+                              : joydb_1_mapped[7:0])
                               : joystick_0;
 wire [31:0] joy1 = joydb_2ena ? (OSD_STATUS ? 32'b0
-                              : {24'b0, joydb_2[10], joydb_2[11], joydb_2[5], joydb_2[4], joydb_2[3:0]})
+                              : joydb_2_mapped[7:0])
                               : joystick_1;
 // [MiSTer-DB9 END]
 //////////////////////////////////////////////////////////////////
